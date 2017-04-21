@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <can-import from="~/styles.less" />
+    <can-import from="~/app" export-as="viewModel" />
+    <can-import from="~/home-page/" />
+
+    <home-page />
+
+    {{#switch env.NODE_ENV}}
+      {{#case "production"}}
+        <script src="{{joinBase 'steal.production.js'}}"></script>
+      {{/case}}
+      {{#default}}
+        <script src="/node_modules/steal/steal.js"></script>
+      {{/default}}
+    {{/switch}}
+  </body>
+</html>
