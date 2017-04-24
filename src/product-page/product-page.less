@@ -1,4 +1,5 @@
 @import "../styles/variables.less";
+@import "../styles/mixins.less";
 
 product-page {
 	display: block;
@@ -113,4 +114,20 @@ product-page {
     padding-left: 50px;
     padding-right: 50px;
     margin: 10px;
+}
+
+.people-bought, .in-stock {
+    &.updated {
+        animation: highlight 1.5s;
+    }
+}
+
+@keyframes highlight {
+  0% {
+    background: @brand-warning;
+    color: #000;
+  }
+  100% {
+    background: none;
+  }
 }
