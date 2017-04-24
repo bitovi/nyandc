@@ -8,11 +8,19 @@
     <can-import from="~/app" export-as="viewModel" />
     <can-import from="~/nav-bar/" />
     <can-import from="~/home-page/" />
+    <can-import from="~/product-page/" />
 
     <nav-bar />
 
     <div class="container-fluid">
-        <home-page />
+        {{#switch page}}
+            {{#case "home"}}
+                <home-page {app}="this" />
+            {{/case}}
+            {{#default}}
+                <product-page {app}="this" {product-id}="productId" />
+            {{/default}}
+        {{/switch}}
     </div>
 
 

@@ -1,9 +1,11 @@
 ; Unix-style newlines
 [*]
-end_of_line = LF
+end_of_line = lf
 indent_style = space
-trim_trailing_whitespace = true
 indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
 
 [*.{html,stache,css,less}]
 indent_size = 4
