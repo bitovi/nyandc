@@ -1,5 +1,5 @@
 import Feathers from 'can-connect-feathers';
-import config from '~/configuration';
+import config from '~/config';
 import $ from 'jquery';
 
 const feathers = new Feathers({

@@ -1,6 +1,7 @@
 import Component from 'can-component';
 import DefineMap from 'can-define/map/';
 import view from './product-page.stache';
+import _startCase from 'lodash/startCase';
 
 export const ViewModel = DefineMap.extend({
   /**
@@ -17,6 +18,20 @@ export const ViewModel = DefineMap.extend({
    * The id for the product to display.
    */
   productId: 'string',
+  /**
+   * @property {String} closestStoreName
+   *
+   * The formatted name of the geographically closest store.
+   *
+   * TODO - This is a good candidate for a helper.
+   */
+  get closestStoreName() {
+    const closestStore = this.app.closestStore;
+
+    if (closestStore) {
+      return _startCase(closestStore.storeName.toLowerCase());
+    }
+  },
   /**
    * @function init
    *
