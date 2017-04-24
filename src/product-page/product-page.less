@@ -1,3 +1,116 @@
+@import "../styles/variables.less";
+
 product-page {
 	display: block;
+	max-width: 1600px;
+    margin: 0 auto;
+
+    .primary {
+        position: relative;
+        background-position: left top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(../images/romper1.jpg);
+        height: 750px;
+
+        @media (max-width: @screen-md) {
+            height: 660px;
+    	}
+    	@media (max-width: @screen-sm) {
+            height: auto;
+            background-image: none;
+
+        }
+
+        .details {
+            padding: @grid-gutter-width;
+            margin: @grid-gutter-width;
+            background: rgba(255,255,255,.7);
+            width: 40%;
+
+            @media (max-width: @screen-md) {
+                width: 50%;
+        	}
+            @media (max-width: @screen-sm) {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                background: #fff;
+            }
+    	}
+
+    	.thumbnails {
+        	position: absolute;
+        	margin: @grid-gutter-width;
+        	width: 40%;
+        	bottom: 0;
+        	height: 200px;
+        	display: flex;
+            justify-content: space-between;
+
+            @media (max-width: @screen-md) {
+                width: 50%;
+                height: 150px;
+        	}
+            @media (max-width: @screen-sm) {
+                width: 100%;
+                position: relative;
+                margin: 0;
+            }
+        	.thumb {
+            	border: 1px solid #ccc;
+            	height: 100%;
+            	background-position: center top;
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 23%;
+                background-image: url(../images/romper1.jpg);
+
+                &.romper2 {
+                    background-image: url(../images/romper2.jpg);
+                }
+                &.romper3 {
+                    background-image: url(../images/romper3.jpg);
+                }
+                &.romper4 {
+                    background-image: url(../images/romper4.jpg);
+                }
+        	}
+        }
+    }
+    .product-image {
+        display: none;
+
+        @media (max-width: @screen-sm) {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-top: @grid-gutter-width/2;
+            margin-bottom: @grid-gutter-width/2;
+    	}
+    }
+}
+.tab-content {
+    padding: @grid-gutter-width;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+
+    .strike {
+        text-decoration: line-through;
+        color: #666;
+        font-weight: normal;
+    }
+    .discount {
+        color: @brand-danger;
+    }
+}
+
+.buy-now {
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 10px;
 }
