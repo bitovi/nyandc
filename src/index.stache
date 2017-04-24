@@ -6,7 +6,7 @@
     <can-import from="~/styles.less" />
     <can-import from="~/app" export-as="viewModel" />
     <can-import from="~/home-page/" />
-
+    <h1>NY & Co</h1>
     <home-page />
 
     {{#switch env.NODE_ENV}}
