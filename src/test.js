@@ -5,6 +5,8 @@ import 'nyandc/models/test';
 
 import 'nyandc/home-page/home-page-test';
 
+import 'nyandc/nav-bar/nav-bar-test';
+
 F.attach(QUnit);
 
 QUnit.module('nyandc functional smoke test', {
