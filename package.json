@@ -16,9 +16,11 @@
   "private": true,
   "scripts": {
     "test": "testee test.html --browsers chromium --reporter Spec",
-    "start": "done-serve --port 8080",
+    "start": "done-serve",
+    "start-local": "NODE_ENV=production PORT=8080 npm start",
     "develop": "done-serve --develop --port 8080",
-    "build": "node build"
+    "build": "node build",
+    "heroku-postbuild": "npm install --only=dev && npm run build"
   },
   "main": "nyandc/index.stache!done-autorender",
   "files": [
