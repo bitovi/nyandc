@@ -1,3 +1,30 @@
 <can-import from="./home-page.less" />
 
-<p>{{message}}</p>
+<div class="deals">
+    <div class="primary">
+        <span class="flag">Trending</span>
+
+        <div class="details">
+            <h3>Off Shoulder Romper</h3>
+            <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
+            <p>34 people bought this today!</p>
+            <p>There are 5 in stock at your Soho store | <a href="/">change store</a></p>
+            <a href="#" class="btn btn-lg btn-danger">Check Your Store</a>
+        </div>
+    </div>
+
+    <div class="secondary top">
+        <span class="flag flag-success">New!</span>
+
+        <div class="details">
+            <h4>Eva Mendes Del Mar Dress</h4>
+        </div>
+    </div>
+    <div class="secondary bottom">
+        <span class="flag flag-warning">Clearance</span>
+
+        <div class="details">
+            <h4>Spring Sale</h4>
+        </div>
+    </div>
+</div>
