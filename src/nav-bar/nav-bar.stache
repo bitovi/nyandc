@@ -1,13 +1,13 @@
 <can-import from="./nav-bar.less" />
 
 <header>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">
-            <img alt="NY & Co" src="/src/images/newyorkco-logo.png">
-          </a>
-        </div>
-      </div>
-    </nav>
+    <a class="navbar-brand" href="/">
+        <img alt="NY & Co" src="/src/images/newyorkco-logo.png">
+    </a>
+
+    <span class="search-form">
+        <form>
+        	<input type="search" placeholder="Search">
+        </form>
+    </span>
 </header>
