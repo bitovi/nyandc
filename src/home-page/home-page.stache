@@ -1,3 +1,14 @@
 <can-import from="./home-page.less" />
 
-<p>{{message}}</p>
+<div class="deals">
+    <div class="primary">
+
+    </div>
+
+    <div class="secondary top">
+
+    </div>
+    <div class="secondary bottom">
+
+    </div>
+</div>

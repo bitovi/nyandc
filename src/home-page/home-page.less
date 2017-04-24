@@ -1,3 +1,39 @@
 home-page {
 	display: block;
+
+	.deals {
+    	margin: 0 auto;
+        flex: 0 0 auto;
+        width: 1200px;
+        height: 650px;
+        background-color: #eee;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        & > div {
+            background-position: left top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            border: 2px solid #eee;
+    	}
+	}
+	.primary {
+    	height: 100%;
+        width: 75%;
+        background: blue;
+        background-image: url(../images/romper1.jpg);
+	}
+	.secondary {
+    	width: 25%;
+        height: 50%;
+
+        &.top {
+            background-image: url(../images/eva.jpg);
+        }
+        &.bottom {
+            background-image: url(../images/bluedress.jpg);
+        }
+	}
 }
