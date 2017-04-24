@@ -7,9 +7,8 @@
         <div class="details">
             <h3>Off Shoulder Romper</h3>
             <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
-            <p>34 people bought this today!</p>
-            <p>There are 5 in stock at your Soho store | <a href="/">change store</a></p>
-            <a href="#" class="btn btn-lg btn-danger">Check Your Store</a>
+            <p class="text-success center"><strong class="people-bought">34</strong> people bought this today!</p>
+            <a href="/off-the-shoulder-romper/A-prod10170024" class="btn btn-lg btn-danger">Find out More</a>
         </div>
     </div>
 
