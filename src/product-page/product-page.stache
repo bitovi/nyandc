@@ -1,0 +1,3 @@
+<can-import from="./product-page.less" />
+
+<p>This is the product page for {{productId}}</p>

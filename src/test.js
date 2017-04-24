@@ -7,6 +7,8 @@ import 'nyandc/home-page/home-page-test';
 
 import 'nyandc/nav-bar/nav-bar-test';
 
+import 'nyandc/product-page/product-page-test';
+
 F.attach(QUnit);
 
 QUnit.module('nyandc functional smoke test', {
@@ -16,5 +18,5 @@ QUnit.module('nyandc functional smoke test', {
 });
 
 QUnit.test('nyandc main page shows up', function() {
-  F('title').text('nyandc', 'Title is set');
+  F('title').text(/.+/, 'Title is set');
 });
