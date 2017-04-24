@@ -1,0 +1,72 @@
+
+.search-form {
+    margin-left: auto;
+    display: flex;
+    -webkit-align-items: center;
+   align-items: center;
+
+   @media (max-width: @screen-md) {
+       margin-left: 0;
+       align-items: center;
+    }
+
+    form {
+        display: block;
+        width: 100%;
+    }
+    a {
+    	color: #69C;
+    	text-decoration: none;
+    }
+    a:hover {
+    	color: #F60;
+    }
+    input {
+    	outline: none;
+    }
+    input[type=search] {
+    	-webkit-appearance: textfield;
+    	-webkit-box-sizing: content-box;
+    	font-family: inherit;
+    	font-size: 100%;
+    }
+    input::-webkit-search-decoration,
+    input::-webkit-search-cancel-button {
+    	display: none;
+    }
+    input[type=search] {
+    	background: #fff url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUwIDUwIiBoZWlnaHQ9IjUwcHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MCA1MCIgd2lkdGg9IjUwcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNTAiIHdpZHRoPSI1MCIvPjxjaXJjbGUgY3g9IjIxIiBjeT0iMjAiIGZpbGw9Im5vbmUiIHI9IjE2IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSI0IiB4MT0iMzIuMjI5IiB4Mj0iNDUuNSIgeTE9IjMyLjIyOSIgeTI9IjQ1LjUiLz48L3N2Zz4=) no-repeat 9px center;
+    	border: solid 1px #ccc;
+    	padding: 9px 10px 9px 32px;
+    	width: 100px;
+        background-size: 19px;
+    	-webkit-border-radius: 10em;
+    	-moz-border-radius: 10em;
+    	border-radius: 10em;
+    	-webkit-transition: all .5s;
+    	-moz-transition: all .5s;
+    	transition: all .5s;
+
+        @media (max-width: @screen-md) {
+           width: calc(~"100% - 30px");
+    	}
+    }
+    input[type=search]:focus {
+    	width: 300px;
+    	border-color: @brand-danger;
+    	-webkit-box-shadow: 0 0 5px @brand-danger;
+    	-moz-box-shadow: 0 0 5px @brand-danger;
+    	box-shadow: 0 0 5px @brand-danger;
+
+        @media (max-width: @screen-md) {
+           width: calc(~"100% - 30px");
+    	}
+    }
+
+    input:-moz-placeholder {
+    	color: #eee;
+    }
+    input::-webkit-input-placeholder {
+    	color: #eee;
+    }
+}
