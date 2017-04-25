@@ -17,10 +17,10 @@
             <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
 
             <product-sales-today {product}="product" />
-            {{#if availableLocal}}
-                <p class="bg-success center">There are <strong class="in-stock">{{availableLocal}}</strong> in stock at {{closestStoreName}}</p>
+            {{#if gtZero(availableLocal.0.available)}}
+                <p class="bg-success center">There are <strong class="in-stock">{{availableLocal.0.available}}</strong> in stock at {{closestStoreName}}</p>
             {{/if}}
-            <p class="center"><a href="javascript://" class="btn btn-lg btn-danger buy-now">Buy Now</a></p>
+            <p class="center"><a href="javascript://" ($click)="placeOrder()" class="btn btn-lg btn-danger buy-now">Buy Now</a></p>
         </div>
 
         <div class="thumbnails">

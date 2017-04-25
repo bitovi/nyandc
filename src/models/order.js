@@ -6,10 +6,17 @@ import OrderLine from '~/models/order-line';
 
 export const Order = DefineMap.extend({
   _id: 'string',
+  __v: {
+    serialize: false
+  },
   status: 'string',
   lines: OrderLine.List,
-  createdAt: Date,
-  updatedAt: Date
+  createdAt: {
+    serialize: false
+  },
+  updatedAt: {
+    serialize: false
+  }
 });
 
 Order.List = DefineList.extend({

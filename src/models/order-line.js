@@ -11,8 +11,12 @@ export const OrderLine = DefineMap.extend({
   quantity: {
     value: 1
   },
-  createdAt: Date,
-  updatedAt: Date
+  createdAt: {
+    serialize: false
+  },
+  updatedAt: {
+    serialize: false
+  }
 });
 
 OrderLine.List = DefineList.extend({

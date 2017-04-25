@@ -8,8 +8,12 @@ export const Inventory = DefineMap.extend({
   store: 'string',
   product: 'string',
   available: 'number',
-  createdAt: Date,
-  updatedAt: Date
+  createdAt: {
+    serialize: false
+  },
+  updatedAt: {
+    serialize: false
+  }
 });
 
 Inventory.List = DefineList.extend({

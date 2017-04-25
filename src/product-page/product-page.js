@@ -4,6 +4,7 @@ import view from './product-page.stache';
 import _startCase from 'lodash/startCase';
 import Product from '~/models/product';
 import Inventory from '~/models/inventory';
+import Order from '~/models/order';
 
 export const ViewModel = DefineMap.extend({
   /**
@@ -35,6 +36,22 @@ export const ViewModel = DefineMap.extend({
     }
   },
   /**
+   * @productId {String} productId
+   *
+   * The internal db reference for the displayed product.
+   */
+  get productId() {
+    return this.product && this.product._id;
+  },
+  /**
+   * @property {Store} closestStore
+   *
+   * The store that's geographically closest to the customer.
+   */
+  get closestStore() {
+    return this.app.closestStore;
+  },
+  /**
    * @property {String} closestStoreName
    *
    * The formatted name of the geographically closest store.
@@ -42,10 +59,8 @@ export const ViewModel = DefineMap.extend({
    * TODO - This is a good candidate for a helper.
    */
   get closestStoreName() {
-    const closestStore = this.app.closestStore;
-
-    if (closestStore) {
-      return _startCase(closestStore.storeName.toLowerCase());
+    if (this.closestStore) {
+      return _startCase(this.closestStore.storeName.toLowerCase());
     }
   },
   /**
@@ -55,19 +70,33 @@ export const ViewModel = DefineMap.extend({
    */
   availableLocal: {
     get(lastSet, resolve) {
-      const closestStore = this.app.closestStore;
-      const product = this.product;
-
-      if (closestStore && product) {
-        Inventory.findAll({ store: closestStore._id, product: product._id })
-          .then(inventory => {
-            if (inventory[0]) {
-              resolve(inventory[0].available);
-            }
-          })
-          .catch(error => console.error(error));
+      if (this.closestStore && this.productId) {
+        Inventory.findAll({
+          store: this.closestStore._id,
+          product: this.productId
+        })
+        .then(inventory => resolve(inventory))
+        .catch(error => console.error(error));
       }
     }
+  },
+  /**
+   * @function placeOrder
+   *
+   * Create an order.
+   */
+  placeOrder() {
+    const order = new Order({
+      lines: [
+        {
+          store: this.closestStore._id,
+          product: this.product._id,
+          quantity: 1
+        }
+      ]
+    });
+
+    return order.save().catch(error => console.error(error));
   },
   /**
    * @function init
@@ -84,5 +113,10 @@ export const ViewModel = DefineMap.extend({
 export default Component.extend({
   tag: 'product-page',
   ViewModel,
-  view
+  view,
+  helpers: {
+    gtZero(value) {
+      return value > 0;
+    }
+  }
 });

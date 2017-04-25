@@ -8,8 +8,12 @@ export const Product = DefineMap.extend({
   baseProductId: 'string',
   name: 'string',
   description: 'string',
-  createdAt: Date,
-  updatedAt: Date
+  createdAt: {
+    serialize: false
+  },
+  updatedAt: {
+    serialize: false
+  }
 });
 
 Product.List = DefineList.extend({

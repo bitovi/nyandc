@@ -25,8 +25,12 @@ export const Store = DefineMap.extend({
   PhoneNumber: 'string',
   suburb: 'string',
   storeName: 'string',
-  createdAt: Date,
-  updatedAt: Date
+  createdAt: {
+    serialize: false
+  },
+  updatedAt: {
+    serialize: false
+  }
 });
 
 Store.List = DefineList.extend({
