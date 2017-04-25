@@ -1,4 +1,5 @@
 <can-import from="./home-page.less" />
+<can-import from="~/common/product-sales-today/" />
 
 <div class="deals">
     <div class="primary">
@@ -7,8 +8,10 @@
         <div class="details">
             <h3>Off Shoulder Romper</h3>
             <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
-            <p class="text-success center"><strong class="people-bought">34</strong> people bought this today!</p>
-            <a href="/off-the-shoulder-romper/A-prod10170024" class="btn btn-lg btn-danger">Find out More</a>
+            {{#if featuredProduct.length}}
+                <product-sales-today {product}="featuredProduct.0" />
+            {{/if}}
+            <a href="/off-the-shoulder-romper/{{featuredBaseProductId}}" class="btn btn-lg btn-danger">Find out More</a>
         </div>
     </div>
 
