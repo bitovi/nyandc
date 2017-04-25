@@ -16,7 +16,9 @@
             <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
 
             <p class="text-success center"><strong class="people-bought">34</strong> people bought this today!</p>
-            <p class="bg-success center">There are <strong class="in-stock">5</strong> in stock at {{closestStoreName}}</p>
+            {{#if closestStoreName}}
+                <p class="bg-success center">There are <strong class="in-stock">5</strong> in stock at {{closestStoreName}}</p>
+            {{/if}}
             <p class="center"><a href="#" class="btn btn-lg btn-danger buy-now">Buy Now</a></p>
         </div>
 

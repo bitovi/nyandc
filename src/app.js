@@ -45,6 +45,12 @@ const AppViewModel = DefineMap.extend({
     serialize: false,
     value: undefined
   },
+  /**
+   * @function init
+   *
+   * When the application loads:
+   * - Look up the customer's location and find their closest store.
+   */
   init() {
     if (window) {
       window.appState = this;
