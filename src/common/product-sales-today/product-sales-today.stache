@@ -1,3 +1,5 @@
 <can-import from="./product-sales-today.less" />
 
-<p class="text-success center"><strong class="people-bought">34</strong> people bought this today!</p>
+{{#if gtOne(product.dailySales)}}
+    <p class="text-success center"><strong class="people-bought">{{product.dailySales}}</strong> people bought this today!</p>
+{{/if}}

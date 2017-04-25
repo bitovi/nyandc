@@ -16,7 +16,9 @@
             <p class="price"><span class="strike">$46.94</span> $14.99 <span class="discount">68% OFF</span></p>
             <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
 
-            <product-sales-today {product}="product" />
+            {{#if product.length}}
+                <product-sales-today {product}="product.0" />
+            {{/if}}
             {{#if gtZero(availableLocal.0.available)}}
                 <p class="bg-success center">There are <strong class="in-stock">{{availableLocal.0.available}}</strong> in stock at {{closestStoreName}}</p>
             {{/if}}

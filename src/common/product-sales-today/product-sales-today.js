@@ -16,5 +16,10 @@ export const ViewModel = DefineMap.extend({
 export default Component.extend({
   tag: 'product-sales-today',
   ViewModel,
-  view
+  view,
+  helpers: {
+    gtOne(value) {
+      return value > 1;
+    }
+  }
 });

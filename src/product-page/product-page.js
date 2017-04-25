@@ -31,7 +31,7 @@ export const ViewModel = DefineMap.extend({
       const baseProductId = this.baseProductId;
 
       Product.findAll({ baseProductId })
-        .then(products => resolve(products[0]))
+        .then(products => resolve(products))
         .catch(error => console.error(error));
     }
   },
@@ -41,7 +41,7 @@ export const ViewModel = DefineMap.extend({
    * The internal db reference for the displayed product.
    */
   get productId() {
-    return this.product && this.product._id;
+    return this.product && this.product[0]._id;
   },
   /**
    * @property {Store} closestStore
@@ -90,7 +90,7 @@ export const ViewModel = DefineMap.extend({
       lines: [
         {
           store: this.closestStore._id,
-          product: this.product._id,
+          product: this.productId,
           quantity: 1
         }
       ]
