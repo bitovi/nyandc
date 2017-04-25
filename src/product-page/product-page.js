@@ -2,6 +2,8 @@ import Component from 'can-component';
 import DefineMap from 'can-define/map/';
 import view from './product-page.stache';
 import _startCase from 'lodash/startCase';
+import Product from '~/models/product';
+import Inventory from '~/models/inventory';
 
 export const ViewModel = DefineMap.extend({
   /**
@@ -13,11 +15,25 @@ export const ViewModel = DefineMap.extend({
     Value: DefineMap
   },
   /**
-   * @property {String} productId
+   * @property {String} baseProductId
    *
-   * The id for the product to display.
+   * The baseProductId for the product to display.
    */
-  productId: 'string',
+  baseProductId: 'string',
+  /**
+   * @property {Product} product
+   *
+   * The product to display.
+   */
+  product: {
+    get(lastSet, resolve) {
+      const baseProductId = this.baseProductId;
+
+      Product.findAll({ baseProductId })
+        .then(products => resolve(products[0]))
+        .catch(error => console.error(error));
+    }
+  },
   /**
    * @property {String} closestStoreName
    *
@@ -30,6 +46,27 @@ export const ViewModel = DefineMap.extend({
 
     if (closestStore) {
       return _startCase(closestStore.storeName.toLowerCase());
+    }
+  },
+  /**
+   * @property {Number} availableLocal
+   *
+   * The product stock at the closest store.
+   */
+  availableLocal: {
+    get(lastSet, resolve) {
+      const closestStore = this.app.closestStore;
+      const product = this.product;
+
+      if (closestStore && product) {
+        Inventory.findAll({ store: closestStore._id, product: product._id })
+          .then(inventory => {
+            if (inventory[0]) {
+              resolve(inventory[0].available);
+            }
+          })
+          .catch(error => console.error(error));
+      }
     }
   },
   /**

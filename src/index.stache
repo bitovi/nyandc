@@ -18,7 +18,7 @@
                 <home-page {app}="this" />
             {{/case}}
             {{#default}}
-                <product-page {app}="this" {product-id}="productId" />
+                <product-page {app}="this" {base-product-id}="baseProductId" />
             {{/default}}
         {{/switch}}
     </div>

@@ -33,7 +33,7 @@ Store.List = DefineList.extend({
   '*': Store
 });
 
-export const messageConnection = superMap({
+export const storeConnection = superMap({
   url: feathers.socketio('stores'),
   idProp: '_id',
   Map: Store,
@@ -42,9 +42,9 @@ export const messageConnection = superMap({
 });
 
 // Connect to realtime events.
-feathers.io.on('stores created', store => store.createInstance(store));
-feathers.io.on('stores updated', store => store.updateInstance(store));
-feathers.io.on('stores patched', store => store.updateInstance(store));
-feathers.io.on('stores removed', store => store.destroyInstance(store));
+feathers.io.on('stores created', store => storeConnection.createInstance(store));
+feathers.io.on('stores updated', store => storeConnection.updateInstance(store));
+feathers.io.on('stores patched', store => storeConnection.updateInstance(store));
+feathers.io.on('stores removed', store => storeConnection.destroyInstance(store));
 
 export default Store;

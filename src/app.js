@@ -4,7 +4,7 @@ import 'can-route-pushstate';
 import Store from '~/models/store';
 
 route('{page}', { page: 'home' });
-route('{page}/{productId}');
+route('{page}/{baseProductId}');
 
 const AppViewModel = DefineMap.extend({
   /**
@@ -14,11 +14,11 @@ const AppViewModel = DefineMap.extend({
    */
   page: 'string',
   /**
-   * @property {String} productId
+   * @property {String} baseProductId
    *
-   * The id for the product to display.
+   * The baseProductId for the product to display.
    */
-  productId: 'string',
+  baseProductId: 'string',
   /**
    * @property {String} title
    *

@@ -1,4 +1,5 @@
 <can-import from="./product-page.less" />
+<can-import from="~/common/product-sales-today/" />
 
     <div class="primary">
         <span class="flag">Trending</span>
@@ -15,11 +16,11 @@
             <p class="price"><span class="strike">$46.94</span> $14.99 <span class="discount">68% OFF</span></p>
             <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
 
-            <p class="text-success center"><strong class="people-bought">34</strong> people bought this today!</p>
-            {{#if closestStoreName}}
-                <p class="bg-success center">There are <strong class="in-stock">5</strong> in stock at {{closestStoreName}}</p>
+            <product-sales-today {product}="product" />
+            {{#if availableLocal}}
+                <p class="bg-success center">There are <strong class="in-stock">{{availableLocal}}</strong> in stock at {{closestStoreName}}</p>
             {{/if}}
-            <p class="center"><a href="#" class="btn btn-lg btn-danger buy-now">Buy Now</a></p>
+            <p class="center"><a href="javascript://" class="btn btn-lg btn-danger buy-now">Buy Now</a></p>
         </div>
 
         <div class="thumbnails">

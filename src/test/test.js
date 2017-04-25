@@ -10,3 +10,4 @@ import 'nyandc/nav-bar/nav-bar-test';
 
 import 'nyandc/product-page/product-page-test';
 
+import 'nyandc/common/product-sales-today/product-sales-today-test';
