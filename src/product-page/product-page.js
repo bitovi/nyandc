@@ -1,10 +1,11 @@
 import Component from 'can-component';
 import DefineMap from 'can-define/map/';
 import view from './product-page.stache';
-import _startCase from 'lodash/startCase';
 import Product from '~/models/product';
 import Inventory from '~/models/inventory';
 import Order from '~/models/order';
+import _startCase from 'lodash/startCase';
+import _get from 'lodash/get';
 
 export const ViewModel = DefineMap.extend({
   /**
@@ -41,7 +42,7 @@ export const ViewModel = DefineMap.extend({
    * The internal db reference for the displayed product.
    */
   get productId() {
-    return this.product && this.product[0]._id;
+    return _get(this, 'product.0._id');
   },
   /**
    * @property {Store} closestStore

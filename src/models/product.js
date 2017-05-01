@@ -22,7 +22,7 @@ Product.List = DefineList.extend({
 });
 
 export const productConnection = superMap({
-  url: feathers.socketio('products'),
+  url: feathers.rest('products'),
   idProp: '_id',
   Map: Product,
   List: Product.List,

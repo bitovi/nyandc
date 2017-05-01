@@ -5,14 +5,14 @@
     <div class="primary">
         <span class="flag">Trending</span>
 
-        <div class="details">
-            <h3>Off Shoulder Romper</h3>
-            <p>An off-the-shoulder silhouette makes a flirty style statement on our simple-yet-sophisticated romper.</p>
-            {{#if featuredProduct.length}}
-                <product-sales-today {product}="featuredProduct.0" />
-            {{/if}}
-            <a href="/off-the-shoulder-romper/{{featuredBaseProductId}}" class="btn btn-lg btn-danger">Find out More</a>
-        </div>
+        {{#if featuredProduct.length}}
+            <div class="details">
+                <h3>{{featuredProduct.0.name}}</h3>
+                <p>{{featuredProduct.0.description}}</p>
+                    <product-sales-today {product}="featuredProduct.0" />
+                <a href="/{{kebabCase(featuredProduct.0.name)}}/{{featuredProduct.0.baseProductId}}" class="btn btn-lg btn-danger">Find out More</a>
+            </div>
+        {{/if}}
     </div>
 
     <div class="secondary top">

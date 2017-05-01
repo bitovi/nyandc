@@ -2,6 +2,7 @@ import Component from 'can-component';
 import DefineMap from 'can-define/map/';
 import view from './home-page.stache';
 import Product from '~/models/product';
+import _kebabCase from 'lodash/kebabCase';
 
 export const ViewModel = DefineMap.extend({
   /**
@@ -48,5 +49,10 @@ export const ViewModel = DefineMap.extend({
 export default Component.extend({
   tag: 'home-page',
   ViewModel,
-  view
+  view,
+  helpers: {
+    kebabCase(value) {
+      return _kebabCase(value);
+    }
+  }
 });
