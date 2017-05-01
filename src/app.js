@@ -58,18 +58,28 @@ const AppViewModel = DefineMap.extend({
 
     if (this.hasGeolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
+        const point = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude
+        };
 
-        Store.findAll({ lon, lat })
-          .then(stores => {
-            this.closestStore = stores[0];
+        Store.findClosestOne(point)
+          .then(store => {
+            if (store) {
+              this.closestStore = store;
+            }
+            else {
+              throw new Error('Closest store not located.');
+            }
 
-            return stores;
+            return store;
           })
           .catch(error => console.error(error));
       },
       error => console.error(error));
+    }
+    else {
+      console.error('Client does not support geolocation api');
     }
   }
 });
